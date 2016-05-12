@@ -274,7 +274,7 @@ class CakePdf
      * @throws \Cake\Core\Exception\Exception
      * @return string
      */
-    public function output($html = null)
+    public function output($filename = '', $dest = 'D', $html = null)
     {
         $Engine = $this->engine();
         if (!$Engine) {
@@ -295,7 +295,7 @@ class CakePdf
             }
         }
 
-        $output = $Engine->output();
+        $output = $Engine->output($filename, $dest);
 
         if ($this->protect()) {
             $output = $this->crypto()->encrypt($output);
