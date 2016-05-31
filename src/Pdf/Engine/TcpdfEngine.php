@@ -21,9 +21,8 @@ class TcpdfEngine extends AbstractPdfEngine
         $TCPDF->setFontSubsetting(true);
 
         // set font
-        $pathToFontDir = \Cake\Core\Plugin::path('CakePdf') . 'webroot' . DS . 'fonts' . DS . 'tcpdf' . DS;
-        $TCPDF->AddFont('source-sans-pro', '', $pathToFontDir . 'source-sans-pro.php');
         $TCPDF->SetFont('source-sans-pro', '', 12);
+
         $TCPDF->writeHTML($this->_Pdf->html());
         return $TCPDF->Output($filename, $dest);
     }
